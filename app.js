@@ -79,10 +79,32 @@ sparky.getPrice();
 // 		purr() - log "purrrrr"
 // 		clean() - log "cleaning"
 // 		getPrice() - return price
+class Cat extends Pet {
+	constructor(name, price){
+		super(name);
+		this.price = price;
+	}
+	purr(){
+		console.log("purrrrr");
+	}
+	clean(){
+		console.log("cleaning");
+	}
+	getPrice(){
+		console.log("That will be $" + this.price + ". Thank you!");
+		return this.price;
+	}
+}
 
 
 
 // 5. Create an instance of Cat called "Sprinkles" and set add all the details that need to be added to make a "complete" Cat. Run the methods to ensure that everything works.
+const sprinkles = new Cat("Sprinkles", 15);
+sprinkles.setOwner("Jack");
+console.log(sprinkles.owner);
+sprinkles.purr();
+sprinkles.clean();
+sprinkles.getPrice();
 
 
 
