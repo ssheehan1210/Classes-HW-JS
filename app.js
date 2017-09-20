@@ -35,10 +35,32 @@ class Pet {
 // 		bark() - log "bark"
 // 		chaseTail() - log "oh boy oh boy oh boy"
 // 		getPrice() - return price
+class Dog extends Pet {
+	constructor(name, price){
+		super(name);
+		this.price = price;
+	}
+	bark(){
+		console.log("bark");
+	}
+	chaseTail(){
+		console.log("oh boy oh boy oh boy");
+	}
+	getPrice(){
+		console.log("That will be $" + this.price + ". Thank you!");
+		return this.price;
+	}
+}
 
 
 
 // 3. Create an instance of Dog called "Sparky" and set add all the details that need to be added to make a "complete" Dog. Run the methods to ensure that everything works.
+const sparky = new Dog("Sparky", 10);
+sparky.setOwner("Sam");
+console.log(sparky.owner);
+sparky.bark();
+sparky.chaseTail();
+sparky.getPrice();
 
 
 
