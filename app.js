@@ -55,7 +55,7 @@ class Dog extends Pet {
 
 
 // 3. Create an instance of Dog called "Sparky" and set add all the details that need to be added to make a "complete" Dog. Run the methods to ensure that everything works.
-const sparky = new Dog("Sparky", 10);
+const sparky = new Dog("Sparky", 15);
 sparky.setOwner("Sam");
 console.log(sparky.owner);
 sparky.bark();
@@ -99,8 +99,8 @@ class Cat extends Pet {
 
 
 // 5. Create an instance of Cat called "Sprinkles" and set add all the details that need to be added to make a "complete" Cat. Run the methods to ensure that everything works.
-const sprinkles = new Cat("Sprinkles", 15);
-sprinkles.setOwner("Jack");
+const sprinkles = new Cat("Sprinkles", 10);
+sprinkles.setOwner("Jill");
 console.log(sprinkles.owner);
 sprinkles.purr();
 sprinkles.clean();
@@ -132,10 +132,63 @@ sprinkles.getPrice();
 // 		exercise() - decrement weight
 // 		age() - increment age, increment weight, decrement mood, increment bank account by 10 (birthday money)
 // 		buyPet(pet) - push the pet object onto the pets array, increment mood by 10, decrement bankAccount by the value of the pet (hint: getPrice())
+class Person {
+	constructor(name){
+		this.name = name;
+		this.personAge = 0;
+		this.weight = 0;
+		this.mood = 0;
+		this.pets = [];
+		this.bankAccount = 0;
+	}
+	getName(){
+		return this.name;
+	}
+	getAge(){
+		return this.personAge;
+	}
+	getWeight(){
+		return this.weight;
+	}
+	greet(other_person){
+		console.log("Hello there, " + other_person + "! How are you today?");
+	}
+	eat(){
+		this.weight += 1;
+		this.mood += 1;
+		console.log("New Weight: " + this.weight + ". New Mood: " + this.mood + ".");
+	}
+	exercise(){
+		this.weight -= 1;
+		console.log("New Weight: " + this.weight + ".");
+	}
+	age(){
+		this.personAge += 1;
+		this.weight += 1;
+		this.mood -= 1;
+		this.bankAccount += 10;
+		console.log("Happy Birthday! New Age: " + this.personAge + ". New Weight: " + this.weight + ". New Mood: " + this.mood + ". New Ammount of Money in Bank: " + this.bankAccount + ".");
+	}
+	buyPet(pet){
+		this.pets.push(pet);
+		this.mood += 10;
+		this.bankAccount -= pet.getPrice();
+		console.log(this.pets[0].name + " is now your pet!!! New Mood: " + this.mood + ". New Ammount of Money in Bank: " + this.bankAccount + ".");
+	}
+}
 
 
 
 // 7. Create an instance of Person called "Jill" and set add all the details that need to be added to make a "complete" Person. Run the methods to ensure that everything works.
+const jill = new Person("Jill");
+jill.getName();
+jill.getAge();
+jill.getWeight();
+jill.greet("Joseph");
+jill.eat();
+jill.exercise();
+jill.age();
+jill.buyPet(sprinkles);
 
 
 
